@@ -1,0 +1,45 @@
+<nav>
+    <ul class="nav-links">
+      <li><a routerLink=''>Početna stranica</a></li>
+      <li><a routerLink='/login'>Pretraga</a></li>
+      <li><a routerLink='/login'>Oglasi</a></li>
+      <li><a routerLink='/login' class='login'>Prijavite se</a></li>
+      <li><a routerLink='/register' class='button register'>Registrujte se</a></li>     
+    </ul>        
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <form class='uredi' name='logovanje' id='forma'action="" method="post">
+            <div class="imgcontainer">
+              <img src="./assets/images/avatar.png" alt="Avatar" class="avatar">
+            </div>
+          
+            <div class='section'>
+              <input type='text' name='username' id='username' autocomplete="off" required [(ngModel)]='username'>
+              <label for='username' class='label-name'>
+                  <span class='content-name'>Korisničko ime</span>
+              </label>
+            </div>
+            <div class='section'>
+              <input type='password' name='password' id='password' autocomplete="off" required [(ngModel)]="password">
+              <label for='password' class='label-name'>
+                  <span class='content-name'>Lozinka</span>
+              </label>
+            </div>     
+            <span style="color:red;">{{message}}</span>
+            <button type='submit' (click)="login()">Prijavite se</button>
+          </form>
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+  <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

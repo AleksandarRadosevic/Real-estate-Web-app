@@ -1,0 +1,154 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/advancedSearch'>Napredna pretraga</a></li>
+        <li><a routerLink='/basicSearch'>Pretraga</a></li>
+        <li><a routerLink='/favorites'>Omiljeno</a></li>
+        <li><a routerLink='/customer' class='login'>Moj profil</a></li>
+        <li><a routerLink='' class='button register'>Odjavi se</a></li>
+    </ul>
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main style="margin-top:0% !important;">
+
+        <section class="glass">
+            <div class="row" style="margin-top:4%;">
+                <div class="col text-right">
+                    <form method='post' action='favorite'>
+                        <button class='btn btn-primary fav omiljen' (click)="addToFavorites()">
+                            Dodaj u omiljene
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div id="my-pics" class="col-lg-6 col-sm-12 carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#my-pics" data-slide-to="0" class="active"></li>
+                        <li data-target="#my-pics" *ngFor='let num of picturesNumber' data-slide-to="num"></li>
+                    </ol>
+
+                    <!-- Content -->
+                    <div class="carousel-inner" role="listbox">
+
+                        <!-- Slide 1 -->
+                        <div class="item active">
+                            <img src="http://localhost:4000/estate_pictures/{{pictureFirst}}" alt="Sunset over beach" style="height: 480px;">
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="item" *ngFor="let pic of pictures">
+                            <img src="http://localhost:4000/estate_pictures/{{pic}}" alt="Rob Roy Glacier" style="width: 100%; height: 480px;">
+                        </div>
+                    </div>
+
+                    <!-- Previous/Next controls -->
+                    <a class="left carousel-control" href="#my-pics" role="button" data-slide="prev">
+                        <span class="icon-prev" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#my-pics" role="button" data-slide="next">
+                        <span class="icon-next" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <table class="table table-stripped" style="background-color: white;" style=" height: 480px;">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="h2 text-center">
+                                    {{advertisement.Realestate.Name}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="h3 text-center">Grad: {{advertisement.Realestate.City}}</td>
+                                <td class="h3 text-center">Opstina: {{advertisement.Realestate.Municipality}}</td>
+                            </tr>
+                            <tr>
+                                <td class="h3 text-center">Mikrolokacija: {{advertisement.Realestate.Microlocation}}
+                                </td>
+                                <td class="h3 text-center">Adresa i broj: {{advertisement.Realestate.Street}}</td>
+                            </tr>
+                            <tr>
+                                <td class="h3 text-center">Tip: {{advertisement.Realestate.Type}}</td>
+                                <td class="h3 text-center">Kvadratura: {{advertisement.Realestate.Area}}</td>
+                            </tr>
+                            <tr>
+                                <td class="h3 text-center" *ngIf="advertisement.Advertiser.length>1">Oglašivač: Agencija
+                                </td>
+                                <td class="h3 text-center" *ngIf="advertisement.Advertiser.length==1">Oglašivač: Vlasnik
+                                </td>
+                                <td class="h3 text-center">Broj soba: {{advertisement.Realestate.Rooms}}</td>
+                            </tr>
+                            <tr>
+
+                                <td class="h3 text-center">Sprat: {{advertisement.Realestate.Floor}}</td>
+                                <td class="h3 text-center">Godina izgradnje:
+                                    {{advertisement.Realestate.ConstructionYear}}</td>
+                            </tr>
+                            <tr>
+                                <td class="h3 text-center">Ukupna spratnost: {{advertisement.Realestate.TotalFloors}}
+                                </td>
+                                <td class="h3 text-center">Stanje nekretnine: {{advertisement.Realestate.State}}</td>
+                            </tr>
+                            <tr>
+                                <td class="h3 text-center">Parking: {{advertisement.Realestate.Parking}}
+                                </td>
+                                <td class="h3 text-center">Tip grejanja: {{advertisement.Realestate.Heating}}</td>
+                            </tr>
+                            <tr>
+                                <td class="h2 text-center danger" colspan="2">
+                                    Cena :
+                                    <span [class.red]="avg>advertisement.Realestate.Avg"
+                                        [class.green]="avg<=advertisement.Realestate.Avg">
+                                        {{advertisement.Realestate.Price}} €
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <pre class="h4" style="padding: 2%;">Opis:<br>{{advertisement.Realestate.About}}
+                        </pre>
+                </div>
+                <div class="col-sm-6">
+                    <pre class="h4" style="padding: 2%;">Karakteristike:<br>{{advertisement.Realestate.Characteristics}}
+                    </pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 bg-primary" *ngIf="advertisement.Advertiser.length==1">
+                    <h4>
+                        Oglasivac: {{advertisement.Advertiser[0].FirstName}} {{advertisement.Advertiser[0].LastName}}
+                        {{advertisement.Advertiser[0].Phone}}
+                    </h4>
+                </div>
+                <div class="col-sm-12 bg-primary" *ngIf="advertisement.Advertiser.length!=1">
+                    <h4>
+                        Oglasivac : {{advertisement.Advertiser[0].Name}} <br>
+                        Adresa : {{advertisement.Advertiser[0].Address}}, {{advertisement.Advertiser[0].City}} <br>
+                        PIB : {{advertisement.Advertiser[0].PIB}} <br>
+                        Agent: {{advertisement.Advertiser[1].FirstName}} {{advertisement.Advertiser[1].LastName}}
+                        <button class="btn btn-lg bg-dark fav omiljen" (click)="show()"
+                            style="width: 50px; padding: 0;"> + </button><br>
+                        <span *ngIf="hide">Kontakt telefon : {{advertisement.Advertiser[1].Phone}}</span>
+                    </h4>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

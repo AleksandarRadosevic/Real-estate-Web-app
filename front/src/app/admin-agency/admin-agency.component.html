@@ -1,0 +1,42 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/adminUsers'>Korisnici</a></li>
+        <li><a routerLink='/adminAgency'>Agencije</a></li>
+        <li><a routerLink='/adminMicrolocation'>Mikrolokacije</a></li>
+        <li><a routerLink='/admin' class='login'>Moj profil</a></li> 
+    </ul>
+            
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <div class='uredi'>
+            <div class="imgcontainer">
+              <img src="../../assets/images/admin.png" alt="Avatar" class="avatar">
+            </div>
+            <ul class='lista'>
+                <h1 class='lista-naslov'>Agencije</h1>
+                <div class='box-container l'><a routerLink="/addAgency">
+                    <button class='polje' style="width: 100%;">Dodaj agenciju</button></a>
+                </div>
+                <li *ngFor="let user of agencies" style="  display: flex; 
+                justify-content: space-between; ">
+                    <span>Ime: {{user.Name}}</span>
+                    <span class="text-center" >PIB: {{user.PIB}}</span>
+                    <span class="text-right">Adresa: {{user.Address}}</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

@@ -1,0 +1,99 @@
+<nav>
+    <ul class="nav-links">
+      <li><a routerLink='/adminUsers'>Korisnici</a></li>
+      <li><a routerLink='/adminAgency'>Agencije</a></li>
+      <li><a routerLink='/adminMicrolocation'>Mikrolokacije</a></li>
+      <li><a routerLink='/admin' class='login'>Moj profil</a></li> 
+    </ul>        
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <form class='uredi' name='registracija' id='forma' action="" method="post">
+            <div class="imgcontainer">
+              <img src="./assets/images/avatar.png" alt="Avatar" class="avatar">
+            </div>
+            <div class='section'>
+                <input type='text' name='firstname' id='firstname' autocomplete="off"  [(ngModel)]='user.firstname'required>
+              <label for='firstname' class='label-name'>
+                  <span class='content-name'>Ime</span>
+              </label>
+            </div>
+            <div class='section'>
+                <input type='text' name='lastname' id='lastname' autocomplete="off" [(ngModel)]='user.lastname'required>
+              <label for='lastname' class='label-name'>
+                  <span class='content-name'>Prezime</span>
+              </label>
+            </div>
+              <div class='section'>
+                  <input type='text' name='username' id='username' autocomplete="off" [(ngModel)]='user.username'required>
+                <label for='username' class='label-name'>
+                    <span class='content-name'>Korisničko ime</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='password' name='password' id='password' autocomplete="off" [(ngModel)]='user.password'required>
+                <label for='password' class='label-name'>
+                    <span class='content-name'>Lozinka</span>
+                </label>
+              </div>
+              <div class='section'>
+                  <input type='text' name='city' id='city' autocomplete="off" [(ngModel)]='user.city'required>
+                <label for='city' class='label-name'>
+                    <span class='content-name'>Grad</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='date' name='birthdate' id='birthdate' autocomplete="off" [(ngModel)]='user.birthdate' required>
+                <label for='birthdate' class='label-name'>
+                    <span class='content-name'>Datum rodjenja</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type="text" name='mail' id="mail" autocomplete="off" [(ngModel)]='user.mail'required>
+                <label for='mail' class='label-name'>
+                    <span class='content-name'>Email</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type="text" name='phone_number' id="phone_number" autocomplete="off" [(ngModel)]='user.phone_number'required>
+                <label for='phone_number' class='label-name'>
+                    <span class='content-name'>Kontakt telefon</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='number' name='licence_number' id='licence_number' autocomplete="off" [(ngModel)]='user.licence_number'required>
+                <label for='licence_number' class='label-name agencija'>
+                    <span class='content-name'>Broj licence (opciono)</span>
+                </label>
+              </div>
+              <div class='section'>
+                <select name='agency' class='agency text-center' [(ngModel)]='agency'>
+                  <option value="">Izaberi agenciju</option>
+                  <option *ngFor='let item of agencies'>{{item.Name}}</option>
+                  <option value="nijedna">Nijedna</option>
+                </select>       
+                </div>
+                  <div>
+                  <mat-radio-group aria-label="Izaberi korisnika" >
+                    <mat-radio-button value="customer" style="margin-right:10px;" (change)="onItemChange('customer')">Kupac</mat-radio-button>
+                    <mat-radio-button value="seller" (change)="onItemChange('seller')">Agent</mat-radio-button>
+                  </mat-radio-group>   
+                  </div>
+                  <span style="color:red;">{{message}}</span>
+            <button type='submit' class='registerbutton' (click)='update()'>Azuriraj korisnika</button>
+          </form>
+
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+  <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

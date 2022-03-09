@@ -1,0 +1,161 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/advancedSearch'>Napredna pretraga</a></li>
+        <li><a routerLink='/basicSearch'>Pretraga</a></li>
+        <li><a routerLink='/favorites'>Omiljeno</a></li>
+        <li><a routerLink='/customer' class='login'>Moj profil</a></li>
+        <li><a routerLink='' class='button register'>Odjavi se</a></li>    
+    </ul>        
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+  </nav>
+  <div class="containter">
+      <main>
+      <section class="glass">
+          <form class='uredi' name='registracija' id='forma' action="" method="post">
+            <div>
+              <h2 class="text-center">Napredna pretraga</h2>
+            </div>
+
+            <div class="table-responsive" style="width: 100%;">
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <td>Cena</td>
+                    <td>
+                        <input type="number" name="priceFrom" id="priceFrom" placeholder="Cena od" [(ngModel)]="priceFrom" autocomplete="off">
+                    </td>
+                    <td>
+                        <input type="number" name="priceTo" id="priceTo"  placeholder="Cena do" [(ngModel)]="priceTo" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kvadratura</td>
+                    <td>
+                        <input type="number" name="areaFrom" id="areaFrom"  placeholder="Kvadratura od" [(ngModel)]="areaFrom" autocomplete="off">
+                    </td>
+                    <td>
+                        <input type="number" name="areaTo" id="areaTo"  placeholder="Kvadratura do" [(ngModel)]="areaTo" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Broj soba</td>
+                    <td>
+                        <input type="number" name="roomsFrom" id="roomsFrom" [(ngModel)]="roomsFrom" autocomplete="off">
+                    </td>
+                    <td>
+                        <input type="number" name="roomsTo" id="roomsTo" [(ngModel)]="roomsTo" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Godina izgradnje</td>
+                    <td>
+                        <input type="number" name="yearMin" id="yearMin"  [(ngModel)]="yearMin" autocomplete="off">
+                    </td>
+                    <td>
+                        <input type="number" name="yearMax" id="yearMax"  [(ngModel)]="yearMax" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Oglasivac</td>
+                    <td>
+                        <input type="radio" name="owner" id="agency" checked (change)="setSeller('Agencija')">
+                        <label for="agency">Agencija</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="owner" id="seller" (change)="setSeller('Vlasnik')">
+                        <label for="seller">Vlasnik</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Stanje nekretnine</td>
+                    <td colspan="2">
+                        <input type="checkbox" name="izvorno" id="izvorno" [(ngModel)]="stateEstates[0]">
+                        <label for="izvorno">Izvorno</label>&nbsp;
+                        <input type="checkbox" name="renovirano" id="renovirano" [(ngModel)]="stateEstates[1]">
+                        <label for="renovirano">Renovirano</label>&nbsp;
+                        <input type="checkbox" name="lux" id="lux" [(ngModel)]="stateEstates[2]">
+                        <label for="lux">Lux</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tip grejanja</td>
+                    <td colspan="2"> 
+                        <input type="checkbox" name="cg" id="cg" [(ngModel)]="heating[0]">
+                        <label for="cg">CG</label>&nbsp;
+                        <input type="checkbox" name="eg" id="eg" [(ngModel)]="heating[1]">
+                        <label for="eg">EG</label>&nbsp;
+                        <input type="checkbox" name="ta" id="ta" [(ngModel)]="heating[2]">
+                        <label for="ta">TA</label>&nbsp;
+                        <input type="checkbox" name="gas" id="gas" [(ngModel)]="heating[3]">
+                        <label for="gas">GAS</label>&nbsp;
+                        <input type="checkbox" name="podno" id="podno" [(ngModel)]="heating[4]">
+                        <label for="podno">Podno</label>&nbsp;
+                        <input type="checkbox" name="toplotnepumpe" id="toplotnepumpe" [(ngModel)]="heating[5]">
+                        <label for="toplotnepumpe">Toplotne pumpe</label>      
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sprat</td>
+                    <td>
+                        <input type="number" name="floor" id="floorFrom"  placeholder="Sprat od" [(ngModel)]="floorFrom">
+                    </td>
+                    <td>
+                        <input type="number" name="floorTo" id="floorTo"  placeholder="Sprat do" [(ngModel)]="floorTo">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mesecne rezije</td>
+                    <td>
+                        <input type="number" name="monthlyFrom" id="monthlyFrom"  placeholder="od" [(ngModel)]="monthlyFrom">
+                    </td>
+                    <td>
+                        <input type="number" name="monthlyTo" id="monthlyTo"  placeholder="do" [(ngModel)]="monthlyTo">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Karakteristike</td>
+                    <td colspan="2">
+                        <input type="checkbox" name="terasa" id="terasa" [(ngModel)]="characteristics[0]">
+                        <label for="terasa">Terasa</label>&nbsp;
+                        <input type="checkbox" name="lodja" id="lodja"  [(ngModel)]="characteristics[1]">
+                        <label for="lodja">Lodja</label>&nbsp;
+                        <input type="checkbox" name="balkon" id="balkon"  [(ngModel)]="characteristics[2]">
+                        <label for="balkon">Balkon</label>&nbsp;
+                        <input type="checkbox" name="lift" id="lift"  [(ngModel)]="characteristics[3]">
+                        <label for="lift">Lift</label>&nbsp;
+                        <input type="checkbox" name="podrum" id="podrum"  [(ngModel)]="characteristics[4]">
+                        <label for="podrum">Podrum</label>&nbsp;
+                        <input type="checkbox" name="garaza" id="garaza"  [(ngModel)]="characteristics[5]">
+                        <label for="garaza">Garaza</label><br>
+                        <input type="checkbox" name="basta" id="basta"  [(ngModel)]="characteristics[6]">
+                        <label for="basta">Sa bastom</label>&nbsp;
+                        <input type="checkbox" name="klima" id="klima"  [(ngModel)]="characteristics[7]">
+                        <label for="klima">Klima</label>  &nbsp;
+                        <input type="checkbox" name="Internet" id="Internet"  [(ngModel)]="characteristics[8]">
+                        <label for="Internet">Internet</label>  &nbsp;
+                        <input type="checkbox" name="Interfon" id="Interfon"  [(ngModel)]="characteristics[9]">
+                        <label for="Interfon">Interfon</label>  &nbsp;
+                        <input type="checkbox" name="Telefon" id="Telefon"  [(ngModel)]="characteristics[10]">
+                        <label for="Telefon">Telefon</label>      
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+   
+            <span style="color:red;">{{message}}</span>
+              <button type='submit' class='registerbutton' (click)="search()">Pretraga</button>
+            </form>
+  
+      </section>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      </main>
+  </div>
+  <footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

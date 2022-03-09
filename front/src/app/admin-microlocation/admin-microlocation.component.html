@@ -1,0 +1,52 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/adminUsers'>Korisnici</a></li>
+        <li><a routerLink='/adminAgency'>Agencije</a></li>
+        <li><a routerLink='/adminMicrolocation'>Mikrolokacije</a></li>
+        <li><a routerLink='/admin' class='login'>Moj profil</a></li> 
+    </ul>
+            
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <div class='uredi'>
+            <div class="imgcontainer">
+              <img src="../../assets/images/admin.png" alt="Avatar" class="avatar">
+            </div>
+            <ul class='lista'>
+                <h1 class='lista-naslov'>Lokacije</h1>
+                <div class='box-container l'><a routerLink="/adminAddMicrolocation">
+                    <button class='polje' style="width: 100%;">Dodaj lokaciju</button></a>
+                </div>
+                <li *ngFor="let location of locations">
+                    <span>{{location.City}}</span>
+                    <span>{{location.Municipality}}</span>
+                    <span>{{location.Microlocation}}</span>
+                    <button class='dugme2' (click)="addStreet(location)">Dodaj ulicu</button>
+                    <button class='dugmeukloni' (click)="remove($event,location)">Ukloni lokaciju</button>
+                </li>
+            </ul>
+            <ul class='lista'>
+                <h1 class='lista-naslov'>Ulice</h1>
+                <li *ngFor="let location of streets">
+                    <span>{{location.City}}</span>
+                    <span>{{location.Municipality}}</span>
+                    <span>{{location.Street}}</span>
+                    <button class='dugmeukloni' (click)="deleteStreet($event,location)">Ukloni ulicu</button>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

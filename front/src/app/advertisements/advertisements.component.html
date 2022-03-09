@@ -1,0 +1,104 @@
+<nav>
+  <ul class="nav-links">
+    <li><a routerLink='/advancedSearch'>Napredna pretraga</a></li>
+    <li><a routerLink='/basicSearch'>Pretraga</a></li>
+    <li><a routerLink='/favorites'>Omiljeno</a></li>
+    <li><a routerLink='/customer' class='login'>Moj profil</a></li>
+    <li><a routerLink='' class='button register'>Odjavi se</a></li>
+  </ul>
+  <div class="hidden-menu">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
+</nav>
+<div class="containter">
+  <main style="margin-top:0% !important;">
+    <section class="glass">
+      <form id="my_form" method="get" action="Add">
+        <div class="col col-sm-12 alert alert-danger text-center" style="padding-top:3%; font-size: 20pt;"
+          *ngIf="advertisements.length==0">Nema rezultata za datu pretragu</div>
+        <div class="col col-sm-12 alert alert-success text-center" style="padding-top:3%; font-size: 10pt;"
+          *ngIf="advertisements.length>0">Rezultati pretrage</div>
+        <div class="row gutters-sm" style="margin-left: 2%; margin-right:2% ;padding-top: 2%;">
+          <br><br><br>
+          <div class="col-md-12 ">
+
+            <div class="card" *ngFor="let ad of advertisements " style="background-color: white; margin-bottom: 1%;">
+              <div class="card-body" rel="stylesheet"
+                href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossorigin="anonymous">
+
+                <div class="row">
+                  <a routerLink='/showAdvertisement' (click)="comeIn(ad)">
+                    <div class="col-lg-3 col-sm-12 ">
+                      <img class="img-fluid" src="http://localhost:4000/estate_pictures/{{ad.Pictures[0]}}"
+                        style="width:100%; height: 170px;">
+                    </div>
+                  </a>
+                  <div class="col-lg-9 col-sm-12">
+                    <div class="table-responsive">
+                      <table class="table table-bordered" style="height: 170px;">
+                        <thead>
+                          <tr class="info">
+                            <th scope="col">Naziv</th>
+                            <th scope="col">Lokacija</th>
+                            <th scope="col">Kvadratura</th>
+                            <th scope="col">Broj Soba</th>
+                            <th scope="col">Spratnost</th>
+                            <th scope="col">Kratak opis</th>
+                            <th scope="col">Cena</th>
+                            <th scope="col">Prosečna cena kvadrata:</th>
+                          </tr>
+                        </thead>
+                        <tbody style="text-align: center;">
+                          <tr class="active">
+                            <td style="font-weight: bold;">{{ad.Realestate.Name}}</td>
+                            <td>
+                              <ul class="list-group" style="list-style-type:circle !important"><b>
+                                  <li class="list-group-item">
+                                    {{ad.Realestate.City}}
+                                  </li>
+                                  <li class="list-group-item">
+                                    {{ad.Realestate.Municipality}}
+                                  </li>
+                                  <li class="list-group-item">
+                                    {{ad.Realestate.Microlocation}}
+                                  </li>
+                                  <li class="list-group-item">
+                                    {{ad.Realestate.Street}}
+                                  </li>
+                                </b>
+                              </ul>
+                            </td>
+                            <td style="font-weight: bold;">{{ad.Realestate.Area}}</td>
+                            <td style="font-weight: bold;">{{ad.Realestate.Rooms}}</td>
+                            <td>{{ad.Realestate.Floor}}</td>
+                            <td>{{ad.Realestate.About}}</td>
+                            <td style="font-weight: bold;" class="danger">{{ad.Realestate.Price}}</td>
+                            <td>{{ad.Realestate.Avg}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </form>
+    </section>
+    <div class="text-right" style="justify-content: space-between !important;   display: flex !important;">
+      <button (click)="prev()" class="btn-primary">Prev</button>
+      <button (click)="next()" class="btn-primary">Next</button>
+    </div>
+  </main>
+
+</div>
+
+<footer>
+  <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

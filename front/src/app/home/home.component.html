@@ -1,0 +1,41 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink=''>Početna stranica</a></li>
+        <li><a routerLink='/login'>Pretraga</a></li>
+        <li><a routerLink='/login'>Oglasi</a></li>
+        <li><a routerLink='/login' class='login'>Prijavite se</a></li>
+        <li><a routerLink='/register' class='button register'>Registrujte se</a></li>
+    </ul>
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+        <section class="glass">
+            <div class='parent'>
+                <span class='tekst1'>Najnovije ponude</span>
+            </div>
+            <div class='parent' id='par1'>
+                <div class='okvir-ponude' *ngFor="let estate of estates">
+                    <div class='tekst2'>
+                        <h2 class='naslov'>{{estate.Realestate.Name}} {{estate.Realestate.Price}} €</h2>
+                        <span class='tekst'>{{estate.Realestate.Bus}}</span>
+                    </div>
+                    <div class="zoom" id='ponuda'>
+                        <img src="http://localhost:4000/estate_pictures/{{estate.Pictures[0]}}"
+                            alt="Slika Beograda na vodi">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

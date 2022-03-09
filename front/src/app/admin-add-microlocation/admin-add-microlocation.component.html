@@ -1,0 +1,44 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/adminUsers'>Korisnici</a></li>
+        <li><a routerLink='/adminAgency'>Agencije</a></li>
+        <li><a routerLink='/adminMicrolocation'>Mikrolokacije</a></li>
+        <li><a routerLink='/admin' class='login'>Moj profil</a></li>
+    </ul>        
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <form class='uredi' name='registracija' id='forma' action="" method="post">
+            <div class="imgcontainer">
+              <img src="./assets/images/avatar.png" alt="Avatar" class="avatar">
+            </div>
+            <div class='section'>
+                <select name='type' class='agency' [(ngModel)]="choose">
+                  <option value="Izaberi grad i opstinu">Izaberi grad i opstinu</option>
+                  <option value="{{location._id}}" *ngFor="let location of locations">{{location.City}}, {{location.Municipality}}</option>
+                </select>
+                </div>
+            <div class='section'>
+                <input type='text' name='name' id='name' autocomplete="off"  [(ngModel)]='name' required>
+              <label for='name' class='label-name'>
+                  <span class='content-name'>Ime</span>
+              </label>
+            </div>
+            <span style="color:red;">{{message}}</span>
+            <button type='submit' class='registerbutton' (click)='add()'>Dodaj mikrolokaciju</button>
+          </form>
+
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

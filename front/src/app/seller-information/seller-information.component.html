@@ -1,0 +1,56 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/sellerInformation'>Informacije</a></li>
+        <li><a routerLink='/sellerEstatesAdd'>Dodavanje oglasa</a></li>
+        <li><a routerLink='/sellerEstates'>Moji oglasi</a></li>
+        <li><a routerLink='/seller' class='login'>Moj profil</a></li>
+        <li><a routerLink='' class='button register'>Odjavi se</a></li>
+    </ul>
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+        <section class="glass">
+            <form method='POST' action=''>
+                <div class='uredi'>
+                    <ul class='izmena'>
+                        <h1 class='izmena-naslov'>Vaši podaci</h1>
+                        <li>
+                            <label class='izmena_label'>
+                                <span class='izmena_span'>Mejl</span>
+                                <input type='text' class='izmena_input' value='' name="mail" [(ngModel)]="mail"
+                                    autocomplete="off">
+                            </label>
+                        </li>
+                        <li>
+                            <label class='izmena_label'>
+                                <span class='izmena_span'>Kontakt telefon</span>
+                                <input type='text' class='izmena_input' name="phone" [(ngModel)]="phone"
+                                    autocomplete="off">
+                            </label>
+                        </li><br>
+                        <li class="" style="text-align:center; margin-left: 25%;">
+                            <select name='agency' class='agency text-center' [(ngModel)]='agency' style="width: 50%;">
+                                <option value="">Izaberi agenciju</option>
+                                <option *ngFor='let item of agencies'>{{item.Name}}</option>
+                                <option value="nijedna">Nijedna</option>
+                            </select>
+                        </li>
+                        <span style="color:red;">{{message}}</span>
+                        <br>
+                        <button type='submit' (click)='change()' class='izmeni_dugme'>Sačuvaj izmene</button>
+                    </ul>
+                </div>
+            </form>
+        </section>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

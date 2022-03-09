@@ -1,0 +1,108 @@
+<nav>
+  <ul class="nav-links">
+    <li><a routerLink='/advancedSearch'>Napredna pretraga</a></li>
+    <li><a routerLink='/basicSearch'>Pretraga</a></li>
+    <li><a routerLink='/favorites'>Omiljeno</a></li>
+    <li><a routerLink='/customer' class='login'>Moj profil</a></li>
+    <li><a routerLink='' class='button register'>Odjavi se</a></li>
+  </ul>
+  <div class="hidden-menu">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
+</nav>
+
+<div class="containter">
+  <main>
+
+    <section class="glass">
+
+      <div class="main-body">
+
+
+
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="http://localhost:4000/registration_pictures/{{picture}}" alt="Admin" class="rounded-circle"
+                    width="150">
+                  <div class="mt-3">
+                    <h2><i>{{user.username}}</i></h2>
+                    <h3 class="text-muted font-size-sm">{{user.city}}</h3>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row" style="padding: 2%;">
+                  <div class="col-sm-3">
+                    <h4 class="mb-0">Ime i prezime</h4>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.firstname}}
+                    {{user.lastname}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row" style="padding: 2%;">
+                  <div class="col-sm-3">
+                    <h4 class="mb-0">Email adresa</h4>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.mail}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row" style="padding: 2%;">
+                  <div class="col-sm-3">
+                    <h4 class="mb-0">Broj telefona</h4>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{user.phone_number}}
+                  </div>
+                </div>
+
+                <hr>
+                <div class="row" style="padding: 2%;">
+                  <div class="col-sm-12">
+                    <a routerLink='/changePass' class="btn btn-lg btn-info " style="width: 100%; padding: 1%;">Izmeni
+                      podatke</a>
+                  </div>
+                </div>
+                <hr>
+                <div class="row" style="padding: 2%;">
+                  <div class="col-sm-12">
+                    <a routerLink='/favorites' class="btn btn-lg btn-info "
+                      style="width: 100%; padding: 1%;">Omiljeno</a>
+                  </div>
+                </div>
+                <div class="row" style="padding: 2%;">
+                  <div class="col-sm-12">
+                    <a routerLink='/advancedSearch' class="btn btn-lg btn-info "
+                      style="width: 100%; padding: 1%;">Napredna pretraga oglasa</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+<footer>
+  <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

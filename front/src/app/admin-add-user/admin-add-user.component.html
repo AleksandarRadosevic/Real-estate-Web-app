@@ -1,0 +1,112 @@
+<nav>
+    <ul class="nav-links">
+      <li><a routerLink='/adminUsers'>Korisnici</a></li>
+      <li><a routerLink='/adminAgency'>Agencije</a></li>
+      <li><a routerLink='/adminMicrolocation'>Mikrolokacije</a></li>
+      <li><a routerLink='/admin' class='login'>Moj profil</a></li>
+    </ul>        
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <form class='uredi' name='registracija' id='forma' action="" method="post">
+            <div class="imgcontainer">
+              <img src="./assets/images/avatar.png" alt="Avatar" class="avatar">
+            </div>
+            <div class='section'>
+                <input type='text' name='firstname' id='firstname' autocomplete="off"  [(ngModel)]='firstname'required>
+              <label for='firstname' class='label-name'>
+                  <span class='content-name'>Ime</span>
+              </label>
+            </div>
+            <div class='section'>
+                <input type='text' name='lastname' id='lastname' autocomplete="off" [(ngModel)]='lastname'required>
+              <label for='lastname' class='label-name'>
+                  <span class='content-name'>Prezime</span>
+              </label>
+            </div>
+              <div class='section'>
+                  <input type='text' name='username' id='username' autocomplete="off" [(ngModel)]='username'required>
+                <label for='username' class='label-name'>
+                    <span class='content-name'>Korisničko ime</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='password' name='password' id='password' autocomplete="off" [(ngModel)]='password'required>
+                <label for='password' class='label-name'>
+                    <span class='content-name'>Lozinka</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='password' name='passagain' id='passagain' autocomplete="off" [(ngModel)]='passwordAgain'required>
+              <label for='passagain' class='label-name'>
+                  <span class='content-name'>Ponovite lozinku</span>
+              </label>
+            </div>
+              <div class='section'>
+                  <input type='text' name='city' id='city' autocomplete="off" [(ngModel)]='city'required>
+                <label for='city' class='label-name'>
+                    <span class='content-name'>Grad</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='date' name='birthdate' id='birthdate' autocomplete="off" [(ngModel)]='birthdate' required>
+                <label for='birthdate' class='label-name'>
+                    <span class='content-name'>Datum rodjenja</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type="text" name='mail' id="mail" autocomplete="off" [(ngModel)]='mail'required>
+                <label for='mail' class='label-name'>
+                    <span class='content-name'>Email</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type="text" name='phone_number' id="phone_number" autocomplete="off" [(ngModel)]='phone_number'required>
+                <label for='phone_number' class='label-name'>
+                    <span class='content-name'>Kontakt telefon</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='number' name='licence_number' id='licence_number' autocomplete="off" [(ngModel)]='licence_number'required>
+                <label for='licence_number' class='label-name agencija'>
+                    <span class='content-name'>Broj licence (opciono)</span>
+                </label>
+              </div>
+              <div class='section'>
+                <select name='agency' class='agency' [(ngModel)]='agency'>
+                  <option value="">Izaberi agenciju</option>
+                  <option *ngFor='let item of agencies' value="{{item._id}}">{{item.Name}}</option>
+                </select>
+                </div>
+                  <div>
+                  <mat-radio-group aria-label="Izaberi korisnika" >
+                    <mat-radio-button value="customer" style="margin-right:10px;" (change)="onItemChange('customer')">Kupac</mat-radio-button>
+                    <mat-radio-button value="seller" (change)="onItemChange('seller')">Agent</mat-radio-button>
+                  </mat-radio-group>   
+                  </div>
+                  <div style="margin: 5px 0px;width:55%;position: relative;height:60px;overflow:hidden;">
+                  <div class="form-group">
+                    <label for="file">Dodaj sliku</label>
+                    <input type="file" class=""
+                    accept="image/*" 
+                    (change)="handleFileInput($event)">    
+                </div>
+              </div>
+                  <span style="color:red;">{{message}}</span>
+            <button type='submit' class='registerbutton' (click)='register()'>Registrujte korisnika</button>
+          </form>
+
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+  <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

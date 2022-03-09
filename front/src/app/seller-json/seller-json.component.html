@@ -1,0 +1,59 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/sellerInformation'>Informacije</a></li>
+        <li><a routerLink='/sellerEstatesAdd'>Dodavanje oglasa</a></li>
+        <li><a routerLink='/sellerEstates'>Moji oglasi</a></li>
+        <li><a routerLink='/seller' class='login'>Moj profil</a></li>
+        <li><a routerLink='' class='button register'>Odjavi se</a></li>
+    </ul>
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+        <section class="glass">
+            <!-- style="background-image:url('../../assets/images/dodavanjeOglasa.jpg');  background-repeat: no-repeat; background-size: cover !important;" -->
+            <form class='uredi' name='registracija' id='forma' action="" method="post" autocomplete="off">
+                <div>
+                    <h2 class="text-center">Dodaj oglas</h2>
+                </div>
+                <div class="table-responsive" style="width: 100%;">
+                    <table class="table table-hover text-center">
+                        <tbody>
+                            <tr>
+                                <td>JSON fajl</td>
+                                <td>
+                                    <div class="form-group" style="margin-left:30%;">
+                                        <input type="file" class="btn btn-lg" accept="text/plain"
+                                            (change)="fileChanged($event)">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Slike</td>
+                                <td>
+                                    <div class="form-group" style="margin-left:30%;">
+                                        <input type="file" class="btn btn-lg" accept="image/*" multiple
+                                            (change)="selectMultiple($event)">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <span style="color:red;">{{message}}</span>
+                <button type='submit' class='registerbutton' (click)="addAdvertisement()">Dodaj oglas</button>
+            </form>
+
+        </section>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

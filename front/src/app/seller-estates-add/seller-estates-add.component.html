@@ -1,0 +1,218 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/sellerInformation'>Informacije</a></li>
+        <li><a routerLink='/sellerEstatesAdd'>Dodavanje oglasa</a></li>
+        <li><a routerLink='/sellerEstates'>Moji oglasi</a></li>
+        <li><a routerLink='/seller' class='login'>Moj profil</a></li>
+        <li><a routerLink='' class='button register'>Odjavi se</a></li>
+    </ul>
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+        <section class="glass">
+            <!-- style="background-image:url('../../assets/images/dodavanjeOglasa.jpg');  background-repeat: no-repeat; background-size: cover !important;" -->
+            <form class='uredi' name='registracija' id='forma' action="" method="post" autocomplete="off">
+                <div>
+                    <h2 class="text-center">Dodaj oglas</h2>
+                </div>
+                <div class="table-responsive" style="width: 100%;">
+                    <table class="table table-hover text-center">
+                        <tbody>
+                            <tr>
+                                <td>Naziv oglasa</td>
+                                <td>
+                                    <input type="text" name="name" id="name" [(ngModel)]="name" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tip</td>
+                                <td>
+                                    <select name='type' class='agency text-center' [(ngModel)]="type">
+                                        <option value="Izaberi tip">Izaberi tip</option>
+                                        <option value="Stan">Stan</option>
+                                        <option value="Kuca">Kuca</option>
+                                        <option value="Lokal">Lokal</option>
+                                        <option value="Vikendica">Vikendica</option>
+                                        <option value="Magacin">Magacin</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Lokacija</td>
+                                <td>
+                                    <select name="location" id="location" class="agency text-center"
+                                        [(ngModel)]="idLocation" (click)="chooseLocation()">
+                                        <option value="{{temp._id}}" *ngFor="let temp of locations">
+                                            {{temp.City}}, {{temp.Municipality}}, {{temp.Microlocation}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ulica</td>
+                                <td>
+                                    <select name="street" id="street" class="agency text-center" [(ngModel)]="street"
+                                        (click)="chooseStreet()">
+                                        <option value="{{temp}}" *ngFor="let temp of streets">
+                                            {{temp}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kvadratura</td>
+                                <td>
+                                    <input type="number" name="area" id="area" [(ngModel)]="area">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Broj soba</td>
+                                <td>
+                                    <input type="number" name="rooms" id="rooms" [(ngModel)]="rooms">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Godina izgradnje
+                                </td>
+                                <td><input type="number" name="year" id="year" [(ngModel)]="year"></td>
+                            </tr>
+                            <tr>
+                                <td>Stanje</td>
+                                <td>
+                                    <select name='state' class='agency text-center' [(ngModel)]="state">
+                                        <option value="Izaberi stanje">Izaberi stanje</option>
+                                        <option value="izvorno">Izvorno</option>
+                                        <option value="renovirano">Renovirano</option>
+                                        <option value="lux">Lux</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Grejanje</td>
+                                <td>
+                                    <select name='heating' class='agency text-center' [(ngModel)]="heating">
+                                        <option value="Izaberi grejanje">Izaberi grejanje</option>
+                                        <option value="CG">CG</option>
+                                        <option value="EG">EG</option>
+                                        <option value="TA">TA</option>
+                                        <option value="gas">gas</option>
+                                        <option value="podno">podno</option>
+                                        <option value="toplotne pumpe">toplotne pumpe</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sprat</td>
+                                <td>
+                                    <input type="number" name="floor" id="floor" [(ngModel)]="floor">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ukupan broj spratova</td>
+                                <td>
+                                    <input type="number" name="totalFloor" id="totalFloor" [(ngModel)]="totalFloor">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Parking</td>
+                                <td>
+                                    <select name='parking' class='agency text-center' [(ngModel)]="parking">
+                                        <option value="Izaberi parking">Izaberi parking</option>
+                                        <option value="da">DA</option>
+                                        <option value="ne" selected>NE</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mesecne rezije</td>
+                                <td>
+                                    <input type="number" name="monthly" id="monthly" [(ngModel)]="monthly">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Cena</td>
+                                <td>
+                                    <input type="number" name="price" id="price" [(ngModel)]="price">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Opis</td>
+                                <td>
+                                    <textarea name="about" id="about" cols="30" rows="10"
+                                        [(ngModel)]="about"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Karakteristike</td>
+                                <td>
+
+                                    <input type="checkbox" name="terasa" id="terasa" [(ngModel)]="characteristics[0]">
+                                    <label for="terasa">Terasa</label>&nbsp;
+                                    <input type="checkbox" name="lodja" id="lodja" [(ngModel)]="characteristics[1]">
+                                    <label for="lodja">Lodja</label>&nbsp;
+                                    <input type="checkbox" name="balkon" id="balkon" [(ngModel)]="characteristics[2]">
+                                    <label for="balkon">Balkon</label>&nbsp;
+                                    <input type="checkbox" name="lift" id="lift" [(ngModel)]="characteristics[3]">
+                                    <label for="lift">Lift</label>&nbsp;
+                                    <input type="checkbox" name="podrum" id="podrum" [(ngModel)]="characteristics[4]">
+                                    <label for="podrum">Podrum</label>&nbsp;
+                                    <input type="checkbox" name="garaza" id="garaza" [(ngModel)]="characteristics[5]">
+                                    <label for="garaza">Garaza</label><br>
+                                    <input type="checkbox" name="basta" id="basta" [(ngModel)]="characteristics[6]">
+                                    <label for="basta">Sa bastom</label>&nbsp;
+                                    <input type="checkbox" name="klima" id="klima" [(ngModel)]="characteristics[7]">
+                                    <label for="klima">Klima</label> &nbsp;
+                                    <input type="checkbox" name="Internet" id="Internet"
+                                        [(ngModel)]="characteristics[8]">
+                                    <label for="Internet">Internet</label> &nbsp;
+                                    <input type="checkbox" name="Interfon" id="Interfon"
+                                        [(ngModel)]="characteristics[9]">
+                                    <label for="Interfon">Interfon</label> &nbsp;
+                                    <input type="checkbox" name="Telefon" id="Telefon"
+                                        [(ngModel)]="characteristics[10]">
+                                    <label for="Telefon">Telefon</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Linije javnog prevoza:</td>
+                                <td>
+                                    <div style="width:50%; margin-left:30%;">
+                                        <ng-multiselect-dropdown [placeholder]="'Izaberi linije javnog prevoza'"
+                                            [settings]="dropdownSettings" [data]="dropdownList" [(ngModel)]="val"
+                                            (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                            (onDeSelect)="onItemDeSelect($event)" (onDeSelectAll)="onUnSelectAll()">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Slike</td>
+                                <td>
+                                    <div class="form-group" style="margin-left:30%;">
+                                        <input type="file" class="btn btn-lg" accept="image/*" multiple
+                                            (change)="selectMultiple($event)">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <span style="color:red;">{{message}}</span>
+                <button type='submit' class='registerbutton' (click)="addAdvertisement()">Dodaj oglas</button>
+            </form>
+
+        </section>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

@@ -1,0 +1,49 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/sellerInformation'>Informacije</a></li>
+        <li><a routerLink='/sellerEstatesAdd'>Dodavanje oglasa</a></li>
+        <li><a routerLink='/sellerEstates'>Moji oglasi</a></li>
+        <li><a routerLink='/seller' class='login'>Moj profil</a></li>
+        <li><a routerLink='' class='button register'>Odjavi se</a></li>
+    </ul>
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+
+        <section class="glass">
+            <div class="main-body">
+                <table class="table table-striped table-hover text-center">
+                    <thead>
+                        <td>Naziv</td>
+                        <td>Cena</td>
+                        <td>Status</td>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let estate of estates'>
+                            <td>{{estate.Realestate.Name}}</td>
+                            <td>{{estate.Realestate.Price}}</td>
+                            <td *ngIf="estate.Realestate.Sold=='no'">
+                                <button class="btn bg-primary btn-block" style="padding: 2%;"
+                                    (click)="update(estate)">Izmeni</button>
+                                <button class="btn bg-success btn-block" style="padding: 2%;"
+                                    (click)="sold(estate)">Prodato</button>
+                            </td>
+                            <td *ngIf="estate.Realestate.Sold!='no'">
+                                <button class="btn bg-danger btn-block">Prodato</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

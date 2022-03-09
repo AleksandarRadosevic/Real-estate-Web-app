@@ -1,0 +1,59 @@
+<nav>
+    <ul class="nav-links">
+        <li><a routerLink='/adminUsers'>Korisnici</a></li>
+        <li><a routerLink='/adminAgency'>Agencije</a></li>
+        <li><a routerLink='/adminMicrolocation'>Mikrolokacije</a></li>
+        <li><a routerLink='/admin' class='login'>Moj profil</a></li> 
+    </ul>
+            
+    <div class="hidden-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <div class='uredi'>
+            <div class="imgcontainer">
+              <img src="../../assets/images/admin.png" alt="Avatar" class="avatar">
+            </div>
+            <ul class='lista'>
+                <h1 class='lista-naslov'>Zahtevi</h1>
+                <div class='box-container l'>
+                    <input class='search'type='text' placeholder="Unesite korisnika">
+                    <button class='polje'>Traži</button>
+                </div>
+                <li *ngFor="let user of pending_requests">
+                    <span>{{user.type}}</span>
+                    <span>{{user.username}} </span>
+                    <span>{{user.firstname}} {{user.lastname}}</span>
+                    <button class='dugme2' (click)="accept(user)" onclick='ukloni(this)'>Prihvati korisnika</button>
+                    <button class='dugmeukloni' (click)="deny(user)" onclick='ukloni(this)'>Odbij korisnika</button>
+                </li>
+            </ul>
+            <ul class='lista'>
+                <h1 class='lista-naslov'>Svi korisnici</h1>
+                <div class='box-container l'>
+                    <a routerLink='/adminAddUser'>
+                    <button class='polje' style="width: 100%;">Dodaj novog korisnika</button>
+                </a>
+                </div>
+                <li *ngFor="let user of users">
+                    <span>{{user.type}}</span>
+                    <span>{{user.username}} </span>
+                    <span>{{user.firstname}} {{user.lastname}}</span>
+                    <button class='dugme2' (click)="update(user)" onclick='ukloni(this)'>Azuriraj korisnika</button>
+                    <button class='dugmeukloni' (click)="delete(user)" onclick='ukloni(this)'>Ukloni korisnika</button>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+    <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

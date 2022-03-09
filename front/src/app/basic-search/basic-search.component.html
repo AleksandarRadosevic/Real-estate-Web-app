@@ -1,0 +1,82 @@
+<nav>
+  <ul class="nav-links">
+    <li><a routerLink='/advancedSearch'>Napredna pretraga</a></li>
+    <li><a routerLink='/basicSearch'>Pretraga</a></li>
+    <li><a routerLink='/favorites'>Omiljeno</a></li>
+    <li><a routerLink='/customer' class='login'>Moj profil</a></li>
+    <li><a routerLink='' class='button register'>Odjavi se</a></li>    
+  </ul>        
+  <div class="hidden-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+  </div>
+</nav>
+<div class="containter">
+    <main>
+    <section class="glass">
+        <form class='uredi' name='registracija' id='forma' action="" method="post">
+          <div>
+            <h2 class="text-center">Osnovna pretraga</h2>
+
+          </div>
+            <div class='section'>
+                <select name='type' class='agency' [(ngModel)]="type">
+                  <option value="Izaberi tip (obavezno)">Izaberi tip (obavezno)</option>
+                  <option value="Stan">Stan</option>
+                  <option value="Kuca">Kuca</option>
+                  <option value="Lokal">Lokal</option>
+                  <option value="Vikendica">Vikendica</option>
+                  <option value="Magacin">Magacin</option>
+                </select>
+                </div>
+              <div class='section'>
+                  <input type='text' name='city' id='city' autocomplete="off"  placeholder="Beograd,Novi Sad,Nis" required [(ngModel)]="city">
+                <label for='city' class='label-name'>
+                    <span class='content-name'>Grad (opciono) </span>
+                </label>               
+              </div>
+              <div class='section'>
+                <input type='text' name='mun' id='mun' autocomplete="off"  placeholder="Cukarica,Palilula,Stari grad" required [(ngModel)]="mun">
+              <label for='mun' class='label-name'>
+                  <span class='content-name'>Opstina (opciono) </span>
+              </label>               
+            </div>
+            <div class='section'>
+              <input type='text' name='micro' id='micro' autocomplete="off"  placeholder="Crveni krst,Banovo brdo,Blok 21" required [(ngModel)]="micro">
+            <label for='micro' class='label-name'>
+                <span class='content-name'>Mikrolokacija (opciono) </span>
+            </label>               
+          </div>
+              <div class='section'>
+                <input type='number' step="10000" name='licence_number' id='licence_number' autocomplete="off" required [(ngModel)]="price">
+                <label for='licence_number' class='label-name agencija'>
+                    <span class='content-name'>Cena do (opciono)</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='number' step="10" name='licence_number' id='licence_number' autocomplete="off" required [(ngModel)]="area">
+                <label for='licence_number' class='label-name agencija'>
+                    <span class='content-name'>Kvadratura od (opciono)</span>
+                </label>
+              </div>
+              <div class='section'>
+                <input type='number' step='0.5'name='licence_number' id='licence_number' autocomplete="off" required [(ngModel)]="rooms">
+                <label for='licence_number' class='label-name agencija'>
+                    <span class='content-name'>Broj soba (opciono)</span>
+                </label>
+              </div>
+                  <div>
+                  </div>
+                  <span style="color:red;">{{message}}</span>
+            <button type='submit' class='registerbutton' (click)="search()">Pretraga</button>
+          </form>
+
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    </main>
+</div>
+<footer>
+  <p>Author: Aleksandar Radosevic 2018/0333<br>
+</footer>

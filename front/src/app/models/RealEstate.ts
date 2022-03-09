@@ -1,0 +1,25 @@
+export class RealEstate{
+        Name:string;
+        City:string;
+        Type:string;
+        Municipality:string;
+        Microlocation:string;
+        Street:string;
+        Area:number;
+        Rooms:number;
+        ConstructionYear:number;
+        State:string;
+        Heating:string;
+        Floor:number;
+        TotalFloors:number;
+        Parking:string;
+        MonthlyUtilities:number;
+        Price:number;
+        About:string;
+        Sold:string;
+        LastModified:Date;
+        DateSold:Date;
+        Characteristics:string[];
+        Avg:number;
+        Bus:number[];
+}
